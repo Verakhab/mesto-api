@@ -1,0 +1,1 @@
+web: DEBUG=mesto-api:* npm run start
