@@ -1,1 +1,1 @@
-web: DEBUG=mesto-api:* npm run start
+web: DEBUG=app-mesto-api:* npm run start
