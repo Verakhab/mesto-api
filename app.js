@@ -14,7 +14,7 @@ const auth = require('./middlewares/auth');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const NotFoundError = require('./errors/not-found-err');
 
-const { PORT = 3000, URL = 'mongodb://denis.bahareff:zIN6TlVf1a@mongodb.cloudno.de:27017' } = process.env;
+const { PORT = 3000, URL = 'mongodb://localhost:27017/mestodb' } = process.env;
 
 const app = express();
 
