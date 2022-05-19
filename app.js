@@ -104,9 +104,9 @@ app.use((err, req, res, next) => {
     .send({ message: err.message });
 });
 
-app.listen(PORT || 3000, () => {
+app.listen(3000, () => {
   // eslint-disable-next-line no-console
-  console.log('Server is running on ' + PORT);
+  console.log('Server is running on ' + 3000);
 });
 // eslint-disable-next-line no-useless-escape
 // Joi.string().regex(/^(http(s)?:\/\/)(w{3}\.)?((\d+\.\d+\.\d+\.\d+)|(([A-Za-z\.-]{2,})\.([A-Za-z]{2,6})))((:\d{2,5})?\/?([\dA-Za-z\/]+#?))?/).required(),
