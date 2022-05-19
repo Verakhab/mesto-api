@@ -14,8 +14,7 @@ const auth = require('./middlewares/auth');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const NotFoundError = require('./errors/not-found-err');
 
-const { URL = 'mongodb://denis.bahareff:zIN6TlVf1a@mongodb.cloudno.de:27017/mestomongodb' } = process.env;
-// const PORT = process.env['app_port'];
+const { PORT = 3000, URL = 'mongodb://localhost:27017/mestodb' } = process.env;
 
 const app = express();
 
@@ -30,9 +29,7 @@ mongoose.connect(URL, {
   useCreateIndex: true,
   useFindAndModify: false,
   useUnifiedTopology: true,
-})
-.then(() => console.log( 'Database Connected' ))
-.catch(err => console.log( err ));
+});
 
 const { connection } = mongoose;
 
@@ -104,9 +101,9 @@ app.use((err, req, res, next) => {
     .send({ message: err.message });
 });
 
-app.listen(3000, () => {
+app.listen(PORT || 3000, () => {
   // eslint-disable-next-line no-console
-  console.log('Server is running on ' + 3000);
+  console.log('Server is running on port ' + PORT);
 });
 // eslint-disable-next-line no-useless-escape
 // Joi.string().regex(/^(http(s)?:\/\/)(w{3}\.)?((\d+\.\d+\.\d+\.\d+)|(([A-Za-z\.-]{2,})\.([A-Za-z]{2,6})))((:\d{2,5})?\/?([\dA-Za-z\/]+#?))?/).required(),
